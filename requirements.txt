@@ -1,0 +1,14 @@
+# Core dependencies
+streamlit>=1.28.0
+requests>=2.31.0
+sqlite3  # Built-in, but listed for reference
+
+# Data visualization
+plotly>=5.17.0
+pandas>=2.1.0
+
+# NEAT algorithm (optional, for AI)
+neat-python>=0.92
+
+# Additional utilities
+numpy>=1.24.0

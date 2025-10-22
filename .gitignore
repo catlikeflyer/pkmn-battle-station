@@ -1,0 +1,77 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+pip-wheel-metadata/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Virtual Environment
+venv/
+ENV/
+env/
+.venv
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# Database
+*.db
+*.sqlite
+*.sqlite3
+pkmn_battle_station.db
+
+# Environment variables
+.env
+.env.local
+
+# Streamlit
+.streamlit/secrets.toml
+
+# Logs
+*.log
+logs/
+
+# Testing
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+
+# Data files (optional - uncomment if you want to cache data locally)
+# data/
+# *.csv
+# *.json
+
+# OS
+Thumbs.db
+.DS_Store
+
+# NEAT checkpoints (if using NEAT)
+neat-checkpoint-*
+winner.pkl
