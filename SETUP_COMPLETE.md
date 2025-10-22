@@ -7,24 +7,28 @@ A complete Pokemon battle simulation system with Streamlit interface to answer: 
 ## ✅ Completed Components
 
 ### 1. Database Schema (`data_prep/create_tables.sql`)
+
 - `pokemon_fact`: Pokemon base stats
-- `moves_dim`: All moves with properties  
+- `moves_dim`: All moves with properties
 - `smogon_sets`: Competitive movesets with EVs
 - `battle_results`: Battle history
 - `pokemon_rankings`: ELO ratings
 - `type_effectiveness`: Type matchup chart
 
 ### 2. Core Battle Engine (`core/`)
+
 - **pokemon.py**: Pokemon class with stats, moves, battle state
 - **move.py**: Move class with damage calculations
 - **battle.py**: Full battle simulator with authentic mechanics
 - **type_chart.py**: Complete Gen 8+ type effectiveness
 
 ### 3. Streamlit Dashboard
+
 - **streamlit_app.py**: Main landing page
 - **pages/2_Battle_Simulator.py**: Interactive 1v1 battles
 
 ### 4. Data Scripts (`data_prep/`)
+
 - `create_tables.py`: Database initialization
 - `pokemon_fact.py`: PokeAPI Pokemon loader
 - `moves_dim.py`: PokeAPI moves loader
@@ -34,6 +38,7 @@ A complete Pokemon battle simulation system with Streamlit interface to answer: 
 ### Immediate Actions
 
 1. **Populate Database**
+
    ```bash
    cd data_prep
    python create_tables.py    # Create tables
@@ -49,17 +54,20 @@ A complete Pokemon battle simulation system with Streamlit interface to answer: 
 ### To Be Built
 
 1. **Smogon Data Scraper** (`data_prep/smogon_sets.py`)
+
    - Scrape usage stats from Smogon
    - Parse movesets, EVs, natures
    - Populate `smogon_sets` table
 
 2. **Additional Streamlit Pages**
+
    - `pages/1_Rankings.py`: ELO leaderboard
    - `pages/3_Tournament.py`: Round-robin system
    - `pages/4_Analytics.py`: Statistics dashboard
    - `pages/5_Type_Analysis.py`: Type matchup heatmap
 
 3. **Tournament System** (`tournament/`)
+
    - `round_robin.py`: Run all vs all battles
    - `elo_system.py`: Calculate rankings
    - Results tracking and visualization
@@ -72,6 +80,7 @@ A complete Pokemon battle simulation system with Streamlit interface to answer: 
 ## 🎮 How It Works
 
 ### Battle Mechanics Implemented
+
 - ✅ Accurate damage formula
 - ✅ Type effectiveness (18 types)
 - ✅ STAB bonus (1.5x)
@@ -81,14 +90,18 @@ A complete Pokemon battle simulation system with Streamlit interface to answer: 
 - ✅ Physical vs Special moves
 
 ### Current Battle AI
+
 Simple rule-based: selects move with highest expected damage considering:
+
 - Base power
 - Type effectiveness
 - Accuracy
 - Attack vs Defense stats
 
 ### Future: NEAT AI
+
 Neural networks that learn optimal strategies:
+
 - Input: Current state (HP, types, moves)
 - Output: Best move to use
 - Fitness: Win rate
@@ -97,12 +110,14 @@ Neural networks that learn optimal strategies:
 ## 📊 Streamlit Features
 
 ### Interactive Battle Simulator
+
 - Select any two Pokemon
 - View their stats and movesets
 - Watch turn-by-turn combat
 - See winner and battle log
 
 ### Future Pages
+
 - **Rankings**: Sort by ELO, tier, type
 - **Tournament**: Run/schedule large battles
 - **Analytics**: Win rates, type advantages
@@ -120,7 +135,7 @@ Neural networks that learn optimal strategies:
 
 ```
 ✅ core/pokemon.py
-✅ core/move.py  
+✅ core/move.py
 ✅ core/battle.py
 ✅ core/type_chart.py
 ✅ core/__init__.py
@@ -144,24 +159,28 @@ Neural networks that learn optimal strategies:
 ## 💡 Design Decisions
 
 ### Why Independent Tables?
+
 - Keeps data clean and normalized
 - Pokemon class loads data dynamically
 - Easy to update movesets without restructuring
 - Smogon sets can be swapped/versioned
 
 ### Why Streamlit?
+
 - Rapid prototyping
 - Built-in interactivity
 - Easy deployment
 - Great for data apps
 
 ### Why ELO Ranking?
+
 - Accounts for opponent strength
 - Updates dynamically
 - Industry standard for competitive ranking
 - More accurate than win/loss ratio
 
 ### Why NEAT?
+
 - Interesting research question
 - Can discover non-obvious strategies
 - Evolves complex decision trees

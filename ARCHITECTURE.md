@@ -1,13 +1,16 @@
 # Project Architecture for Pokemon Battle Ranking System
 
 ## Overview
+
 Determine the strongest Pokemon through round-robin battles using:
+
 - Base stats from PokeAPI
 - Most used Smogon movesets
 - NEAT algorithm for battle strategy evolution
 - ELO ranking system
 
 ## Phase 1: Data Collection ✓
+
 ```
 data_prep/
 ├── create_tables.py       # Initialize database
@@ -18,6 +21,7 @@ data_prep/
 ```
 
 ## Phase 2: Core Battle Engine
+
 ```
 core/
 ├── pokemon.py
@@ -44,6 +48,7 @@ core/
 ```
 
 ## Phase 3: NEAT Integration (Optional Enhancement)
+
 ```
 ai/
 ├── neat_config.txt        # Population size, mutation rates, etc.
@@ -58,6 +63,7 @@ ai/
 ```
 
 ## Phase 4: Tournament System
+
 ```
 tournament/
 ├── round_robin.py
@@ -76,6 +82,7 @@ tournament/
 ```
 
 ## Phase 5: Streamlit Dashboard
+
 ```
 streamlit_app.py           # Main Streamlit application
 pages/
@@ -94,24 +101,29 @@ components/
 ## Database Schema
 
 ### pokemon_fact
+
 - Base stats for all Pokemon
 - Source: PokeAPI
 
 ### moves_dim
+
 - All move properties
 - Source: PokeAPI
 
 ### smogon_sets
+
 - Most used competitive movesets
 - Includes moves, ability, item, nature, EVs
 - Source: Smogon usage stats
 
 ### battle_results
+
 - Record of every battle fought
 - Winner, turns, remaining HP
 - Used for analytics
 
 ### pokemon_rankings
+
 - ELO rating for each Pokemon
 - Win/loss record
 - Updated after each battle
@@ -119,14 +131,18 @@ components/
 ## How NEAT Fits In
 
 ### Option A: NEAT for Battle AI (Recommended)
+
 Instead of hardcoded battle logic, use NEAT to evolve optimal strategies:
+
 - Each Pokemon gets a neural network "brain"
 - Network decides which move to use based on battle state
 - Fitness = win rate
 - After evolution, use best networks for tournament
 
 ### Option B: Simple Battle Logic (Faster)
+
 Use deterministic logic:
+
 - Choose move with highest expected damage
 - Consider type effectiveness and STAB
 - Account for accuracy and priority
@@ -145,6 +161,7 @@ Use deterministic logic:
 9. Visualize results
 
 ## Expected Runtime
+
 - Data collection: ~30 minutes
 - Round-robin (900 Pokemon): ~2-4 hours
   - Can parallelize battles
@@ -154,16 +171,19 @@ Use deterministic logic:
 ## Questions to Consider
 
 1. **Which Pokemon to include?**
+
    - All 900+? or
    - Only OU/UU tiers?
    - Legendary restrictions?
 
 2. **Battle rules?**
+
    - Level 100, full EVs
    - Items allowed?
    - Abilities active?
 
 3. **NEAT or simple AI?**
+
    - NEAT: More interesting, slower
    - Simple: Faster, still valid results
 

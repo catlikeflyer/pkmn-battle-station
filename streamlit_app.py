@@ -2,6 +2,7 @@
 Pokemon Battle Station - Streamlit Dashboard
 Main entry point for the interactive application.
 """
+
 import streamlit as st
 import sqlite3
 from pathlib import Path
@@ -11,11 +12,12 @@ st.set_page_config(
     page_title="Pokemon Battle Station",
     page_icon="⚔️",
     layout="wide",
-    initial_sidebar_state="expanded"
+    initial_sidebar_state="expanded",
 )
 
 # Custom CSS
-st.markdown("""
+st.markdown(
+    """
 <style>
     .main-header {
         font-size: 3rem;
@@ -33,24 +35,33 @@ st.markdown("""
         margin-bottom: 2rem;
     }
 </style>
-""", unsafe_allow_html=True)
+""",
+    unsafe_allow_html=True,
+)
 
 # Title
-st.markdown('<h1 class="main-header">⚔️ Pokemon Battle Station</h1>', unsafe_allow_html=True)
-st.markdown('<p class="subtitle">Determine the strongest Pokemon through battle simulations</p>', unsafe_allow_html=True)
+st.markdown(
+    '<h1 class="main-header">⚔️ Pokemon Battle Station</h1>', unsafe_allow_html=True
+)
+st.markdown(
+    '<p class="subtitle">Determine the strongest Pokemon through battle simulations</p>',
+    unsafe_allow_html=True,
+)
 
 # Check if database exists
 db_path = Path("pkmn_battle_station.db")
 if not db_path.exists():
     st.error("⚠️ Database not found! Please run the data preparation scripts first.")
-    st.info("""
+    st.info(
+        """
     **Setup Instructions:**
     1. Run `python data_prep/create_tables.py` to create database
     2. Run `python data_prep/pokemon_fact.py` to load Pokemon data
     3. Run `python data_prep/moves_dim.py` to load move data
     4. (Optional) Run script to load Smogon sets
     5. Restart this app
-    """)
+    """
+    )
     st.stop()
 
 # Database stats
@@ -90,7 +101,8 @@ col1, col2 = st.columns(2)
 
 with col1:
     st.subheader("What This Does")
-    st.write("""
+    st.write(
+        """
     This project aims to answer: **"What's the strongest Pokemon?"**
     
     Through comprehensive battle simulations using:
@@ -99,18 +111,21 @@ with col1:
     - 🔄 Most used competitive movesets (from Smogon)
     - 🤖 AI-driven battle strategies (NEAT algorithm)
     - 📊 ELO ranking system
-    """)
+    """
+    )
 
 with col2:
     st.subheader("Features")
-    st.write("""
+    st.write(
+        """
     **Available Pages:**
     - 🏆 **Rankings**: View top Pokemon by ELO rating
     - ⚔️ **Battle Simulator**: Watch any two Pokemon fight
     - 🏟️ **Tournament**: Run round-robin tournaments
     - 📈 **Analytics**: Deep dive into battle statistics
     - 🎨 **Type Analysis**: Type effectiveness insights
-    """)
+    """
+    )
 
 st.markdown("---")
 
@@ -134,9 +149,12 @@ with col3:
 st.markdown("---")
 
 # Footer
-st.markdown("""
+st.markdown(
+    """
 <div style='text-align: center; color: #888; padding: 2rem;'>
     <p>Built with Streamlit • Data from PokeAPI & Smogon</p>
     <p>Battle simulation using authentic Pokemon mechanics</p>
 </div>
-""", unsafe_allow_html=True)
+""",
+    unsafe_allow_html=True,
+)

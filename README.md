@@ -17,11 +17,13 @@ This project definitively answers that question through comprehensive battle sim
 ## Quick Start
 
 ### 1. Install Dependencies
+
 ```bash
 pip install -r requirements.txt
 ```
 
 ### 2. Setup Database
+
 ```bash
 # Navigate to data prep folder
 cd data_prep
@@ -37,6 +39,7 @@ python moves_dim.py
 ```
 
 ### 3. Launch Streamlit App
+
 ```bash
 # From project root
 streamlit run streamlit_app.py
@@ -88,6 +91,7 @@ The simulator implements authentic Pokemon battle mechanics:
 - **Speed Priority**: Faster Pokemon attacks first
 
 ## Learning Objectives
+
 - Gain proficiency in data visualization libraries and Streamlit
 - Understand the fundamentals of battle simulation algorithms
 - Develop skills in user interface design and user experience
