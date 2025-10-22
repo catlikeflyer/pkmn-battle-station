@@ -49,7 +49,7 @@ st.markdown(
 )
 
 # Check if database exists
-db_path = Path("pkmn_battle_station.db")
+db_path = Path("./data_prep/pkmn_battle_station.db")
 if not db_path.exists():
     st.error("⚠️ Database not found! Please run the data preparation scripts first.")
     st.info(
@@ -119,11 +119,12 @@ with col2:
     st.write(
         """
     **Available Pages:**
-    - 🏆 **Rankings**: View top Pokemon by ELO rating
-    - ⚔️ **Battle Simulator**: Watch any two Pokemon fight
-    - 🏟️ **Tournament**: Run round-robin tournaments
-    - 📈 **Analytics**: Deep dive into battle statistics
-    - 🎨 **Type Analysis**: Type effectiveness insights
+    - 📖 **Pokedex**: Browse all Pokemon and their stats
+    - ⚔️ **Battle Simulator**: Watch any two Pokemon fight (WIP)
+    - 🏆 **Rankings**: View top Pokemon by ELO rating (WIP)
+    - 🏟️ **Tournament**: Run round-robin tournaments (WIP)
+    - 📈 **Analytics**: Deep dive into battle statistics (WIP)
+    - 🎨 **Type Analysis**: Type effectiveness insights (WIP)
     """
     )
 
@@ -132,18 +133,22 @@ st.markdown("---")
 # Quick actions
 st.header("🚀 Quick Actions")
 
-col1, col2, col3 = st.columns(3)
+col1, col2, col3, col4 = st.columns(4)
 
 with col1:
-    if st.button("🎲 Random Battle", use_container_width=True):
-        st.switch_page("pages/2_Battle_Simulator.py")
+    if st.button("📖 Browse Pokedex", use_container_width=True):
+        st.switch_page("pages/1_Pokedex.py")
 
 with col2:
-    if st.button("🏆 View Rankings", use_container_width=True):
-        st.switch_page("pages/1_Rankings.py")
+    if st.button("⚔️ Battle Simulator (WIP)", use_container_width=True):
+        st.switch_page("pages/2_Battle_Simulator.py")
 
 with col3:
-    if st.button("📊 Analytics Dashboard", use_container_width=True):
+    if st.button("🏆 Rankings (WIP)", use_container_width=True, disabled=True):
+        st.switch_page("pages/3_Rankings.py")
+
+with col4:
+    if st.button("📊 Analytics (WIP)", use_container_width=True, disabled=True):
         st.switch_page("pages/4_Analytics.py")
 
 st.markdown("---")

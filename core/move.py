@@ -9,7 +9,7 @@ from typing import Optional
 class Move:
     """Represents a Pokemon move with its properties."""
 
-    def __init__(self, name: str, db_path: str = "pkmn_battle_station.db"):
+    def __init__(self, name: str, db_path: str = "data_prep/pkmn_battle_station.db"):
         """
         Initialize a Move from the database.
 

@@ -14,7 +14,7 @@ st.title("⚔️ Battle Simulator")
 st.markdown("Select two Pokemon and watch them battle!")
 
 # Get list of Pokemon
-conn = sqlite3.connect("pkmn_battle_station.db")
+conn = sqlite3.connect("data_prep/pkmn_battle_station.db")
 cursor = conn.cursor()
 cursor.execute("SELECT name FROM pokemon_fact ORDER BY name")
 pokemon_names = [row[0] for row in cursor.fetchall()]

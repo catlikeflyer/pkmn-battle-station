@@ -10,7 +10,7 @@ from core.move import Move
 class Pokemon:
     """Represents a Pokemon with stats, moves, and battle state."""
 
-    def __init__(self, name: str, db_path: str = "pkmn_battle_station.db"):
+    def __init__(self, name: str, db_path: str = "data_prep/pkmn_battle_station.db"):
         """
         Initialize a Pokemon from the database.
 

@@ -36,9 +36,9 @@ for pokemon in pokemon_list:
     # Insert data into the database
     cursor.execute(
         """
-        INSERT OR REPLACE INTO pokemon (
-            id, name, type1, type2, hp, attack, defense, sp_at
-            sp_def, speed
+        INSERT OR REPLACE INTO pokemon_fact (
+            id, name, type1, type2, hp, attack, defense, special_attack,
+            special_defense, speed
         ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
         """,
         (
@@ -54,6 +54,9 @@ for pokemon in pokemon_list:
             speed,
         ),
     )
+
+    print(f"Inserted/Updated {pokemon_name} (ID: {pokemon_id})")
+
 # Commit changes and close the connection
 connection.commit()
 connection.close()
