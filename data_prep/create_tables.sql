@@ -9,7 +9,8 @@ CREATE TABLE IF NOT EXISTS pokemon_fact (
     special_defense INTEGER,
     speed INTEGER,
     type1 TEXT,
-    type2 TEXT
+    type2 TEXT,
+    sprite_url TEXT
 );
 
 -- Stores all moves and their properties

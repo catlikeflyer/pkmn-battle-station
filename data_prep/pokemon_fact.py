@@ -33,13 +33,16 @@ for pokemon in pokemon_list:
     sp_def = stats.get("special-defense", 0)
     speed = stats.get("speed", 0)
 
+    # Extract sprite URL (front default)
+    sprite_url = pokemon_data.get("sprites", {}).get("front_default", None)
+
     # Insert data into the database
     cursor.execute(
         """
         INSERT OR REPLACE INTO pokemon_fact (
             id, name, type1, type2, hp, attack, defense, special_attack,
-            special_defense, speed
-        ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+            special_defense, speed, sprite_url
+        ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
         """,
         (
             pokemon_id,
@@ -52,6 +55,7 @@ for pokemon in pokemon_list:
             sp_atk,
             sp_def,
             speed,
+            sprite_url,
         ),
     )
 

@@ -27,6 +27,7 @@ SELECT
     special_attack,
     special_defense,
     speed,
+    sprite_url,
     (hp + attack + defense + special_attack + special_defense + speed) as total
 FROM pokemon_fact
 ORDER BY id
@@ -130,6 +131,12 @@ if display_mode == "Cards":
 
                 with cols[col_idx]:
                     with st.container(border=True):
+                        # Pokemon sprite
+                        if pd.notna(pokemon["sprite_url"]):
+                            st.image(pokemon["sprite_url"], width=150)
+                        else:
+                            st.write("No image")
+
                         # Pokemon name and ID
                         st.markdown(
                             f"### #{pokemon['id']:03d} {pokemon['name'].title()}"
@@ -165,6 +172,15 @@ if display_mode == "Cards":
 
                         # Total
                         st.metric("Total", int(pokemon["total"]))
+
+                        # Details button - using query params
+                        if st.button(
+                            "📋 Details",
+                            key=f"details_{pokemon['name']}",
+                            use_container_width=True,
+                        ):
+                            st.query_params["pokemon"] = pokemon["name"]
+                            st.switch_page("pages/3_Pokemon_Details.py")
 
 else:
     # Table view
